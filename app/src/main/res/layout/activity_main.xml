@@ -8,10 +8,22 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white_back"
+        app:logo="@drawable/pumpkin"
+        app:title="Популярные"
+        app:titleTextAppearance="@style/CustomToolbarTitle"
+        app:titleMarginStart="30dp"
+        />
+
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="10"
         app:defaultNavHost="true"
@@ -23,8 +35,8 @@
         android:layout_height="68dp"
         android:background="@color/white"
         android:outlineProvider="none"
-        app:itemIconSize="23dp"
         android:paddingHorizontal="30dp"
+        app:itemIconSize="23dp"
         app:itemActiveIndicatorStyle="@android:color/transparent"
         app:itemTextAppearanceActive="@color/orange"
         app:itemTextAppearanceInactive="@color/black"

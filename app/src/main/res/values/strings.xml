@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MovieHelloween</string>
+
     <string name="home_icon">Home</string>
     <string name="search_icon">Search</string>
     <string name="favourites_icon">Favourites</string>
     <string name="profile_icon">Profile</string>
+
+    <string name="popular_title">Popular</string>
 </resources>
