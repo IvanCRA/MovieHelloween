@@ -2,6 +2,11 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="white_back">#EFEFEF</color>
+    <color name="back_color">#EFEFEF</color>
+    <color name="back_navb_color">#FFFFFFFF</color>
     <color name="orange">#F27503</color>
+    <color name="text_and_icon">#373A40</color>
+    <color name="title_color">#FF000000</color>
+
+
 </resources>
