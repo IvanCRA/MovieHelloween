@@ -4,4 +4,9 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/title_color</item>
     </style>
+
+    <style name="RoundedCornerImageRating" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">4dp</item>
+    </style>
 </resources>

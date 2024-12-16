@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="184dp"
+    android:layout_height="322dp"
+    app:cardCornerRadius="8dp"
+    android:layout_marginHorizontal="10dp"
+    android:layout_marginVertical="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent_constriant"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/back_list_item">
+
+        <ImageView
+            android:id="@+id/image_view_item"
+            android:layout_width="match_parent"
+            android:layout_height="248dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/Frameprob"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/btn_add_favour"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/rounded_button_background_add_favour"
+            app:layout_constraintEnd_toEndOf="@+id/image_view_item"
+            app:layout_constraintTop_toTopOf="@+id/image_view_item" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/film_rating_background"
+            android:layout_width="53dp"
+            android:layout_height="26dp"
+            android:background="#378319"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
+            app:shapeAppearanceOverlay="@style/RoundedCornerImageRating"
+            app:layout_constraintBottom_toBottomOf="@+id/image_view_item"
+            app:layout_constraintEnd_toEndOf="@+id/image_view_item" />
+
+        <ImageView
+            android:id="@+id/image_star_rating"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="6dp"
+            android:src="@drawable/star_vector"
+            app:layout_constraintBottom_toBottomOf="@id/film_rating_background"
+            app:layout_constraintStart_toStartOf="@id/film_rating_background"
+            app:layout_constraintTop_toTopOf="@id/film_rating_background"
+            app:tint="@color/star_rating_color" />
+
+        <TextView
+            android:id="@+id/text_rating_int"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="8.7"
+            android:textColor="@color/star_rating_color"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/film_rating_background"
+            app:layout_constraintEnd_toEndOf="@id/film_rating_background"
+            app:layout_constraintTop_toTopOf="@id/film_rating_background" />
+
+
+
+
+        <TextView
+            android:id="@+id/text_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/title_color"
+            android:text="Астрал 1"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_item" />
+
+        <TextView
+            android:id="@+id/text_item_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/inter"
+            android:textColor="@color/text_year_color_item"
+            android:text="2003"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_item_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -15,32 +15,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         setSupportActionBar(binding.toolbar)
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
         binding.bottomNav.setupWithNavController(navController)
 
-        /*binding.bottomNav.setOnItemSelectedListener { item ->
-            when(item.itemId) {
-                R.id.homeFragment -> {
-                    binding.toolbar.title = item.title
-                    true
-                }
-                R.id.favouritesFragment -> {
-                    binding.toolbar.title = item.title
-                    true
-                }
-                R.id.searchFragment -> {
-                    binding.toolbar.title = item.title
-                    true
-                }
-                R.id.profileFragment -> {
-                    binding.toolbar.title = item.title
-                    true
-                }
-                else -> false
-            }
-        }*/
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.homeFragment -> binding.toolbar.title = getString(R.string.popular_title)
