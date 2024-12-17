@@ -10,6 +10,8 @@
     <color name="text_year_color_item">#9C9C9C</color>
     <color name="back_list_item">#FFFFFFFF</color>
     <color name="star_rating_color">#FFFFFFFF</color>
+    <color name="rating_green">#378319</color>
+    <color name="rating_gray">#676767</color>
 
 
 
