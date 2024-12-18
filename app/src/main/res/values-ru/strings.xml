@@ -6,7 +6,8 @@
     <string name="search_icon">Поиск</string>
     <string name="favourites_icon">Избранное</string>
     <string name="profile_icon">Профиль</string>
-
+    <string name="hint_text_search">Фильмы, сериалы, жанры</string>
     <string name="popular_title">Популярные</string>
+    <string name="text_result"> Ничего не найдено</string>
 
 </resources>

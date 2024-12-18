@@ -6,6 +6,7 @@
     <string name="search_icon">Search</string>
     <string name="favourites_icon">Favourites</string>
     <string name="profile_icon">Profile</string>
-
     <string name="popular_title">Popular</string>
+    <string name="hint_text_search">Movies, serials, genre</string>
+    <string name="text_result">No results</string>
 </resources>

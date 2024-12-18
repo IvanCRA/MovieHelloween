@@ -12,10 +12,13 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.imageview.ShapeableImageView
 
-class HomeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)) {
+class HomeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
+    LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
+) {
     val textItemName = itemView.findViewById<TextView>(R.id.text_item_name)
     val textItemYear = itemView.findViewById<TextView>(R.id.text_item_year)
-    val filmRatingBackground = itemView.findViewById<ShapeableImageView>(R.id.film_rating_background)
+    val filmRatingBackground =
+        itemView.findViewById<ShapeableImageView>(R.id.film_rating_background)
     val imageViewItem = itemView.findViewById<ImageView>(R.id.image_view_item)
     val textRatingInt = itemView.findViewById<TextView>(R.id.text_rating_int)
 
@@ -30,13 +33,12 @@ class HomeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(LayoutInflater
             filmRatingBackground.setBackgroundResource(R.color.rating_gray)
         }
 
-        textRatingInt.text = if (movie.movieShort.rating.toString() == "10.0") "10" else movie.movieShort.rating.toString()
+        textRatingInt.text =
+            if (movie.movieShort.rating.toString() == "10.0") "10" else movie.movieShort.rating.toString()
 
         Glide.with(itemView.context)
             .setDefaultRequestOptions(requestOptions)
             .load(movie.movieShort.imgUrl)
             .into(imageViewItem)
-
-
     }
 }

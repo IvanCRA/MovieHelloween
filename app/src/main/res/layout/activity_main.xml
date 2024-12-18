@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -15,10 +16,8 @@
         android:background="@color/back_color"
         app:logo="@drawable/pumpkin_svg"
         app:title="@string/home_icon"
-        app:titleTextAppearance="@style/CustomToolbarTitle"
         app:titleMarginStart="30dp"
-        />
-
+        app:titleTextAppearance="@style/CustomToolbarTitle" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
