@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
+import com.example.moviehelloween.Movie
 import com.example.moviehelloween.MovieRepository
 import com.example.moviehelloween.adapter.HomeAdapter
 import com.example.moviehelloween.databinding.FragmentHomeBinding
@@ -36,7 +37,7 @@ class HomeFragment : Fragment() {
         val repository = MovieRepository(requireContext())
         viewModel = ViewModelProvider(this, HomeViewModelFactory(repository)).get(HomeViewModel::class.java)
 
-        adapter = HomeAdapter(requireContext(), emptyList())
+        adapter = HomeAdapter(requireContext(), mutableListOf())
         binding.listHome.adapter = adapter
 
         observeMovies()
