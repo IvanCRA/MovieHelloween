@@ -46,6 +46,12 @@ class SearchFragment : Fragment() {
     }
 
     fun startResultFragment() {
+        //binding.searchView.query.toString()
+        parentFragmentManager.apply {
+            arguments = Bundle().apply {
+                putString("searchQuery", binding.searchView.query.toString())
+            }
+        }
         val bundle = Bundle()
         bundle.putString("searchQuery", binding.searchView.query.toString())
         findNavController().navigate(R.id.action_searchFragment_to_resultFragment, bundle)

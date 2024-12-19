@@ -34,7 +34,7 @@ class FavouritesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         _binding = FragmentFavouritesBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -44,12 +44,12 @@ class FavouritesFragment : Fragment() {
         adapter = FavouriteAdapter(requireContext(), mutableListOf())
         binding.listFavourite.adapter = adapter
 
-        observeFavourites()
+        setupObservers()
 
         return view
     }
 
-    private fun observeFavourites() {
+    private fun setupObservers() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.favourite.collectLatest { favourites ->
                 adapter.updateFavourites(favourites)
