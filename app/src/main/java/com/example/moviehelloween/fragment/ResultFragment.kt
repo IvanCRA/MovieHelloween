@@ -11,6 +11,7 @@ import com.example.moviehelloween.Movie
 import com.example.moviehelloween.MovieRepository
 import com.example.moviehelloween.R
 import com.example.moviehelloween.adapter.ResultAdapter
+import com.example.moviehelloween.data.Cache
 import com.example.moviehelloween.databinding.FragmentResultBinding
 import com.example.moviehelloween.viewmodel.ResultViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -43,8 +44,6 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         repository = MovieRepository(requireContext())
         viewModel = ResultViewModel(repository, searchQuery)
         observeMovies()
-        Log.i("Fragg", "я родился")
-
     }
 
     private fun observeMovies() {

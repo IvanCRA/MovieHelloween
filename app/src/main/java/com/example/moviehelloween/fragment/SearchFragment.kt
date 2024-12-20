@@ -1,22 +1,25 @@
 package com.example.moviehelloween.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.SearchView
-import androidx.navigation.fragment.NavHostFragment
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.moviehelloween.R
-import com.example.moviehelloween.databinding.FragmentProfileBinding
+import com.example.moviehelloween.data.Cache
 import com.example.moviehelloween.databinding.FragmentSearchBinding
-import kotlin.concurrent.fixedRateTimer
+
 
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
+    private lateinit var file: Cache
+    private val listHistory = mutableListOf<String>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +32,15 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        file = Cache(requireContext())
+        val listData = file.readHistory("history_of_search.txt")
+        val adapter = ArrayAdapter(requireContext(), R.layout.text_linear, listData.reversed());
+        binding.listView.adapter = adapter
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 query?.let {
-                    startResultFragment();
+                    listHistory.add(query.toString())
+                    startResultFragment()
                 }
                 return true
             }
@@ -46,7 +54,7 @@ class SearchFragment : Fragment() {
     }
 
     fun startResultFragment() {
-        //binding.searchView.query.toString()
+        file.saveHistory(listHistory.toList(), filename = "history_of_search.txt")
         parentFragmentManager.apply {
             arguments = Bundle().apply {
                 putString("searchQuery", binding.searchView.query.toString())
