@@ -5,10 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.moviehelloween.Movie
 import com.example.moviehelloween.MovieRepository
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 class ResultViewModel(private val repository: MovieRepository, private val searchQuery: String) : ViewModel() {
-    private val _movieList = MutableLiveData<List<Movie>>()
-    val movieList: LiveData<List<Movie>> get() = _movieList
+    private val _movieList = MutableStateFlow<List<Movie>>(emptyList())
+    val movieList: StateFlow<List<Movie>> = _movieList
 
     init {
         loadMovie()

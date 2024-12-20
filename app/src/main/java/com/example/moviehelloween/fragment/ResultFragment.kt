@@ -40,7 +40,7 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
             searchQuery = it.getString("searchQuery") ?: ""
         }
         setUpRecycle()
-        val repository = MovieRepository(requireContext())
+        repository = MovieRepository(requireContext())
         viewModel = ResultViewModel(repository, searchQuery)
         observeMovies()
         Log.i("Fragg", "я родился")
@@ -51,8 +51,10 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         binding.progressBar.visibility = View.VISIBLE
         binding.catView.visibility = View.INVISIBLE
         binding.notFount.visibility = View.INVISIBLE
-        viewModel.movieList.observe(viewLifecycleOwner) { movies ->
-            adapter.setItems(movies.toMutableList())
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.movieList.collectLatest { movies ->
+                adapter.setItems(movies.toMutableList())
+            }
         }
         binding.progressBar.visibility = View.INVISIBLE
         if (adapter.itemCount == 0) {
