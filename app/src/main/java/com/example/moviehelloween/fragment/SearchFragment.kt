@@ -35,7 +35,8 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = SearchViewModel(requireContext())
-        val adapter = ArrayAdapter(requireContext(), R.layout.text_linear, viewModel.openFile().reversed());
+        val adapter =
+            ArrayAdapter(requireContext(), R.layout.text_linear, viewModel.openFile().reversed());
         binding.listView.adapter = adapter
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.moviehelloween.Movie
 import com.example.moviehelloween.MovieRepository
@@ -14,6 +15,7 @@ import com.example.moviehelloween.adapter.ResultAdapter
 import com.example.moviehelloween.data.Cache
 import com.example.moviehelloween.databinding.FragmentResultBinding
 import com.example.moviehelloween.viewmodel.ResultViewModel
+import com.example.moviehelloween.viewmodelfactory.ResultViewModelFactory
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -42,7 +44,8 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         }
         setUpRecycle()
         repository = MovieRepository(requireContext())
-        viewModel = ResultViewModel(repository, searchQuery)
+        val factory = ResultViewModelFactory(repository, searchQuery)
+        viewModel = ViewModelProvider(this, factory).get(ResultViewModel::class.java)
         observeMovies()
     }
 
@@ -64,11 +67,10 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
             binding.notFount.visibility = View.INVISIBLE
         }
         binding.progressBar.visibility = View.INVISIBLE
-        Log.d("Fragg", "Количество элементов в адаптере: ${adapter.itemCount}")
     }
 
     private fun setUpRecycle() {
-        adapter = ResultAdapter(this, mutableListOf<Movie>())
+        adapter = ResultAdapter(this, mutableListOf())
         binding.recyclerView.adapter = adapter
     }
 }

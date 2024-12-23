@@ -1,5 +1,6 @@
 package com.example.moviehelloween.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.moviehelloween.Movie
@@ -7,6 +8,8 @@ import com.example.moviehelloween.MovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+
+
 
 class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
     private val _movie = MutableStateFlow<List<Movie>>(emptyList())

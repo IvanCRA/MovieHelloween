@@ -9,6 +9,7 @@ import com.example.moviehelloween.R
 import com.example.moviehelloween.databinding.FragmentFavouritesBinding
 import com.example.moviehelloween.databinding.FragmentProfileBinding
 
+
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null

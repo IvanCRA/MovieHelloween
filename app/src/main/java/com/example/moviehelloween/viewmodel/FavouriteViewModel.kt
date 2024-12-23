@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class FavouriteViewModel(private val repository: FavouriteRepository) : ViewModel() {
+class FavouriteViewModel (private val repository: FavouriteRepository) : ViewModel() {
     private val _favourite = MutableStateFlow<List<Favourite>>(emptyList())
     val favourite: StateFlow<List<Favourite>> = _favourite
 
