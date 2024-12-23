@@ -11,13 +11,15 @@ import androidx.navigation.fragment.findNavController
 import com.example.moviehelloween.R
 import com.example.moviehelloween.data.Cache
 import com.example.moviehelloween.databinding.FragmentSearchBinding
+import com.example.moviehelloween.viewmodel.SearchViewModel
+import kotlinx.coroutines.flow.toList
 
 
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
-    private lateinit var file: Cache
+    private lateinit var viewModel: SearchViewModel
     private val listHistory = mutableListOf<String>()
 
 
@@ -32,9 +34,8 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        file = Cache(requireContext())
-        val listData = file.readHistory("history_of_search.txt")
-        val adapter = ArrayAdapter(requireContext(), R.layout.text_linear, listData.reversed());
+        viewModel = SearchViewModel(requireContext())
+        val adapter = ArrayAdapter(requireContext(), R.layout.text_linear, viewModel.openFile().reversed());
         binding.listView.adapter = adapter
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
@@ -54,7 +55,7 @@ class SearchFragment : Fragment() {
     }
 
     fun startResultFragment() {
-        file.saveHistory(listHistory.toList(), filename = "history_of_search.txt")
+        viewModel.saveFile(listHistory)
         parentFragmentManager.apply {
             arguments = Bundle().apply {
                 putString("searchQuery", binding.searchView.query.toString())

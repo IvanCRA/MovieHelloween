@@ -1,6 +1,7 @@
 package com.example.moviehelloween.data
 
 import android.content.Context
+import com.example.moviehelloween.viewmodel.SearchViewModel
 import java.io.File
 
 class Cache(private val context: Context) {

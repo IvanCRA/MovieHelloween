@@ -9,5 +9,5 @@
     <string name="hint_text_search">Фильмы, сериалы, жанры</string>
     <string name="popular_title">Популярные</string>
     <string name="text_result"> Ничего не найдено</string>
-
+    <string name="recent">Недавние</string>
 </resources>
