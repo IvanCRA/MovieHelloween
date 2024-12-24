@@ -7,6 +7,7 @@ import com.example.moviehelloween.Movie
 import com.example.moviehelloween.MovieRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 
@@ -22,7 +23,7 @@ class HomeViewModel(private val repository: MovieRepository) : ViewModel() {
     private fun loadMovies() {
         viewModelScope.launch {
             val movieList = repository.loadMovies()
-            _movie.value = movieList
+            _movie.update { movieList }
         }
     }
 }

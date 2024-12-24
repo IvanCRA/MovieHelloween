@@ -6,6 +6,7 @@ import com.example.moviehelloween.Favourite
 import com.example.moviehelloween.FavouriteRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class FavouriteViewModel (private val repository: FavouriteRepository) : ViewModel() {
@@ -19,7 +20,7 @@ class FavouriteViewModel (private val repository: FavouriteRepository) : ViewMod
     private fun loadFavourites() {
         viewModelScope.launch {
             val favouriteList = repository.loadFavourites()
-            _favourite.value = favouriteList
+            _favourite.update { favouriteList }
         }
     }
 }

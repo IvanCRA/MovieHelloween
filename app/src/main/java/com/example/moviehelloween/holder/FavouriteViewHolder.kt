@@ -28,7 +28,7 @@ class FavouriteViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     fun bind(favourite: Favourite) {
         textItemName.text = favourite.title
         textItemYear.text = favourite.year.toString()
-        if (favourite.rating!! >= 7.0) {
+        if ((favourite.rating ?: 0.0) >= 7.0) {
             filmRatingBackground.setBackgroundResource(R.color.rating_green)
         } else {
             filmRatingBackground.setBackgroundResource(R.color.rating_gray)
