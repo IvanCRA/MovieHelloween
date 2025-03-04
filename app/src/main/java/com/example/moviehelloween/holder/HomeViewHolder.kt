@@ -1,7 +1,9 @@
 package com.example.moviehelloween.holder
 
+import android.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintSet
@@ -21,6 +23,7 @@ class HomeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
         itemView.findViewById<ShapeableImageView>(R.id.film_rating_background)
     val imageViewItem = itemView.findViewById<ImageView>(R.id.image_view_item)
     val textRatingInt = itemView.findViewById<TextView>(R.id.text_rating_int)
+    val btnAddFavour = itemView.findViewById<ImageButton>(R.id.btn_add_favour)
 
     private val set = ConstraintSet()
     private val requestOptions = RequestOptions().placeholder(R.drawable.outline_image_24)
@@ -40,5 +43,13 @@ class HomeViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
             .setDefaultRequestOptions(requestOptions)
             .load(movie.movieShort.imgUrl)
             .into(imageViewItem)
+
+        btnAddFavour.setOnClickListener {
+            val builder = AlertDialog.Builder(itemView.context)
+            builder.setMessage("Вы добавили ${movie.movieShort.title} вы получите миска рис плюс кошкожена")
+            builder.setPositiveButton("Пасыба") { dialogWindow, _ -> dialogWindow.cancel() }
+            val AlertDialog: AlertDialog = builder.create()
+            AlertDialog.show()
+        }
     }
 }
